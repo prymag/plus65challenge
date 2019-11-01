@@ -20,4 +20,6 @@ class MemberService {
         return $this->member->get();
     }
 
+    
+
 }
