@@ -1,0 +1,9 @@
+.floating-lbl {
+    input {
+        position: relative;
+        z-index: 10;
+    }
+    label {
+        z-index: 5;
+    }
+}

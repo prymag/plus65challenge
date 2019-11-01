@@ -10,6 +10,15 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
 
+    /**
+     * Suppress bsCustomFileInput error
+     * Not included on the mdbootstrap free version
+     */
+    window.bsCustomFileInput = function() {
+        function init() {}
+        return {init: init}
+    }()
+
     require('bootstrap');
 } catch (e) {}
 
