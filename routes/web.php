@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login.form');
+Route::post('/admin/login', 'Admin\LoginController@login')->name('admin.do.login');
+
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::resource('/', 'Admin\DashboardController');
+});
