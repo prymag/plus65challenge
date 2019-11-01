@@ -1,6 +1,9 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Models\Admin;
+use App\Models\Member;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -16,13 +19,24 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Admin::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+        'username' => 'appadmn',
+        'email_verified_at' => now(),
+        'password' => App::make('hash')->make('password'), // password
+        'remember_token' => Str::random(10),
+    ];
+});
+
+$factory->define(Member::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'username' => $faker->unique()->userName,
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => App::make('hash')->make(Str::random(10)),
         'remember_token' => Str::random(10),
     ];
 });

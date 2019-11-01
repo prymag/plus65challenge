@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDrawWinnersTable extends Migration
+class CreateWinningNumbersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateDrawWinnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('draw_winners', function (Blueprint $table) {
+        Schema::create('winning_numbers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedInteger('draw_prize');
+            $table->string('number', 4)->unique();
+            $table->unsignedBigInteger('member_id');
             $table->timestamps();
+
+            $table->unique(array('number', 'member_id'), 'unique_user_number');
         });
 
-        Schema::table('draw_winners', function(Blueprint $table) {
-            $table->foreign('user_id')
+        Schema::table('winning_numbers', function(Blueprint $table) {
+            $table->foreign('member_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');;
@@ -35,6 +37,6 @@ class CreateDrawWinnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('draw_winners');
+        Schema::dropIfExists('winning_numbers');
     }
 }
