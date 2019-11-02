@@ -20528,12 +20528,27 @@ input[type=range]::-ms-thumb {
   }
 }
 
-.floating-lbl input {
+.input-field input {
   position: relative;
   z-index: 10;
 }
 
-.floating-lbl label {
+.input-field label {
   z-index: 5;
+}
+
+.input-field ul.select-dropdown {
+  width: 300px !important;
+}
+
+.input-field input.select-dropdown {
+  padding-right: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.table-prize-row > div {
+  height: 100%;
 }
 
