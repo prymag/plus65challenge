@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('components.prize-board')
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-6 col-lg-4">
+            
+            {{ Form::open() }}
+                <button class="btn btn-primary">{{'Lucky Draw'}}</button>
+            {{ Form::close() }}
             <div class="card">
                 {{ Form::open() }}
                 <div class="card-body">
@@ -11,10 +18,10 @@
                         <div class="col-md-4">
                             <div class="input-field">
                                 <select>
-                                    <option value="" disabled selected>Choose your option</option>
-                                    <option value="1">Option 1</option>
-                                    <option value="2">Option 2</option>
-                                    <option value="3">Option 3</option>
+                                    <option value="" disabled selected>{{ __('Please Select')}}</option>
+                                    @foreach ($prizes as $prize)
+                                        <option value="{{$prize->key}}">{{ $prize->title }}</option>
+                                    @endforeach
                                 </select>
                                 <label for="">{{ __('Select')}}</label>
                             </div>
