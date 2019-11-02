@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Users\Member;
 
-use App\Models\Member;
+use App\Modules\Users\Member\Member;
 
 class MemberService {
 
