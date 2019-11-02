@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\WinningNumber;
-use App\Services\MemberService;
+use App\Modules\Users\Member\MemberService;
 use Illuminate\Database\Seeder;
 
 class WinningNumbersSeeder extends Seeder
