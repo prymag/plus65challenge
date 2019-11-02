@@ -26,3 +26,7 @@ Route::post('/admin/login', 'Admin\LoginController@login')->name('admin.do.login
 Route::group(['prefix' => 'admin'], function() {
     Route::resource('/', 'Admin\DashboardController');
 });
+
+Route::group(['prefix' => 'ajax'], function() {
+    Route::resource('/', 'Ajax\LuckyDraw');
+});
