@@ -2,9 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Admin;
-use App\Models\Member;
-use App\User;
+use App\Modules\Users\Admin\Admin;
+use App\Modules\Users\Member\Member;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
