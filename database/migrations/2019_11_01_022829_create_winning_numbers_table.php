@@ -22,12 +22,7 @@ class CreateWinningNumbersTable extends Migration
             $table->unique(array('number', 'member_id'), 'unique_user_number');
         });
 
-        Schema::table('winning_numbers', function(Blueprint $table) {
-            $table->foreign('member_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
+        
     }
 
     /**

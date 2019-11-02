@@ -15,20 +15,10 @@ class CreateDrawWinnersTable extends Migration
     {
         Schema::create('draw_winners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedInteger('prize_id');
+            $table->unsignedBigInteger('member_id')->unique();
+            $table->unsignedBigInteger('winning_number_id');
+            $table->unsignedInteger('prize_id')->unique();
             $table->timestamps();
-        });
-
-        Schema::table('draw_winners', function(Blueprint $table) {
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-
-            $table->foreign('prize_id')
-                ->references('id')
-                ->on('prizes');
         });
     }
 
