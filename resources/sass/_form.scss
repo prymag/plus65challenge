@@ -1,9 +1,19 @@
-.floating-lbl {
+.input-field {
     input {
         position: relative;
         z-index: 10;
     }
     label {
         z-index: 5;
+    }
+
+    ul.select-dropdown {
+        width:300px !important;
+    }
+    input.select-dropdown {
+        padding-right:10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }
