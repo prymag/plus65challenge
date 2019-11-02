@@ -12,11 +12,11 @@
                 {{ Form::open(['url' => route('admin.do.login'), 'method' => 'post']) }}
                 <div class="card-body">
 
-                    <div class="md-form floating-lbl">
+                    <div class="input-field">
                         {{ Form::text('username', '', ['class' => 'form-control']) }}
                         <label for="form1">{{ __('Username') }}</label>
                     </div>
-                    <div class="md-form floating-lbl">
+                    <div class="input-field">
                         {{ Form::password('password', ['class' => 'form-control']) }}
                         <label for="form1">{{ __('Password') }}</label>
                     </div>
