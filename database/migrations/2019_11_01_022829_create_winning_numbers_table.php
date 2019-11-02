@@ -26,7 +26,7 @@ class CreateWinningNumbersTable extends Migration
             $table->foreign('member_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');;
+                ->onDelete('cascade');
         });
     }
 
