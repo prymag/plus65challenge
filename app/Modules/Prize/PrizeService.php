@@ -54,7 +54,25 @@ class PrizeService {
     public function getAll()
     {
         # code...
-        return $this->prize->get();
+        return $this->prize
+            ->orderBy('sort_order', 'asc')
+            ->get();
+    }
+
+    public function getActivePrizes()
+    {
+        # code...
+        $fields = [
+            'prizes.id as id',
+            'key',
+            'sort_order',
+            'title'
+        ];
+        return $this->prize
+            ->select($fields)
+            ->leftJoin('draw_winners', 'draw_winners.prize_id', '=', 'prizes.id')
+            ->whereNull('draw_winners.prize_id')
+            ->get();
     }
 
 }

@@ -9,7 +9,7 @@ class PrizeSeed extends Seed  {
     protected $data = [
         [
             'title' => 'Grand Prize',
-            'key' => ' grand_prize',
+            'key' => 'grand_prize',
             'sort_order' => 1
         ],
         [
