@@ -21,7 +21,17 @@ class DrawWinnerService {
         $model->prize_id = $opts['prize_id'];
         $model->save();
 
+        // Make relationships available after saving
+        $model->load('winning_number');
+        $model->load('member');
+
         return $model;
+    }
+
+    public function clear()
+    {
+        # code...
+        $this->draw_winner->truncate();
     }
 
 }
