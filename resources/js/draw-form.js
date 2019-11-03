@@ -31,7 +31,7 @@ module.exports = function() {
 
     function onRandToggle() {
         const checked = $rand_toggle.prop('checked');
-        console.log(checked);
+        
         if (checked) {
             $winning_no.attr('disabled', true);
         }
@@ -41,6 +41,8 @@ module.exports = function() {
             
             if (checked) {
                 $winning_no.val('').attr('disabled', true);
+            } else {
+                $winning_no.val('').attr('disabled', false);
             }
         })
     }

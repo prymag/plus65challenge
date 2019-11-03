@@ -1,7 +1,8 @@
 <?php
 
 use App\Modules\Users\Member\MemberService;
-use App\Modules\WinningNumber\WinningNumber as AppWinningNumber;
+use App\Modules\WinningNumber\WinningNumber;
+use App\Modules\WinningNumber\WinningNumberService;
 use Illuminate\Database\Seeder;
 
 class WinningNumbersSeeder extends Seeder
@@ -15,14 +16,9 @@ class WinningNumbersSeeder extends Seeder
     {
         //
         $member_service = App::make(MemberService::class);
-
+        $winning_number_service = App::make(WinningNumberService::class);
+        $member_service->seed();
         $members = $member_service->getAll();
-        
-        $members->each(function($member) {
-            factory(AppWinningNumber::class, rand(1,10))->create([
-                'member_id' => $member->id
-            ]);
-        });
-
+        $winning_number_service->seed($members);
     }
 }

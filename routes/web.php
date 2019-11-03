@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/generate-prizes', 'Admin\DrawGeneratorController@generatePrizes')->name('admin.generate-prizes');
     Route::post('/generate-prize', 'Admin\DrawGeneratorController@generatePrize')->name('admin.generate-prize');
     Route::post('/clear-winners', 'Admin\WinnersController@clearWinners')->name('admin.clear-winners');
+    Route::post('/re-seed', 'Admin\ReseederController@reSeed')->name('admin.re-seed');
 });
 
 Route::group(['prefix' => 'ajax'], function() {

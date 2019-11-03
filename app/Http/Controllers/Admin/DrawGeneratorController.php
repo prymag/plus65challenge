@@ -113,7 +113,7 @@ class DrawGeneratorController extends Controller
              * ModelNotFoundException
              */
             case $e instanceof ModelNotFoundException:
-                $msg = __('Prize not found');
+                $msg = __('Prize not available. Someone might have already won it.');
             break;
             case $e instanceof \Exception;
                 $time = $this->log_service->log($e, 'error');

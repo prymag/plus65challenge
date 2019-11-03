@@ -63,6 +63,18 @@ class MemberService {
         ];
     }
 
+    public function dropAll()
+    {
+        # code...
+        $this->member->query()->delete();
+    }
+
+    public function seed()
+    {
+        # code...
+        factory(Member::class, 6)->create();        
+    }
+
     
 
 }

@@ -3,6 +3,7 @@
 namespace App\Modules\WinningNumber;
 
 use Illuminate\Database\DatabaseManager as Db;
+use Illuminate\Database\Eloquent\Collection;
 
 class WinningNumberService {
     //
@@ -28,6 +29,16 @@ class WinningNumberService {
                 SELECT count(number) as total FROM `winning_numbers` GROUP BY member_id
             ) 
             AS result")[0]->maximum;
+    }
+
+    public function seed(Collection $collection)
+    {
+        # code...
+        $collection->each(function($member) {
+            factory(WinningNumber::class, rand(5,10))->create([
+                'member_id' => $member->id
+            ]);
+        });
     }
 
 }
