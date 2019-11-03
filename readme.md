@@ -1,6 +1,6 @@
 # PLUS 65 TEST CHALLENGE
 
-This is a developer challenge from Plus65 for the PHP developer position.  
+This is a developer challenge from Plus65 for the Backend developer position.  
 [Challenge Requirements](https://drive.google.com/open?id=0ByoKs7KHMtLyeEdrcG5yMnRjUWg5eTlLMUdPbWl0SWxUMVFZ)
 
 ## INSTRUCTIONS
