@@ -1,11 +1,18 @@
 # PLUS 65 TEST CHALLENGE
 
-This is a developer challenge from Plus65 for the PHP developer position.  
+This is a developer challenge from Plus65 for the Backend developer position.  
 [Challenge Requirements](https://drive.google.com/open?id=0ByoKs7KHMtLyeEdrcG5yMnRjUWg5eTlLMUdPbWl0SWxUMVFZ)
 
 ## INSTRUCTIONS
 
 1. Clone this repository
+
+> git clone https://github.com/perrymarkg/plus65challenge.git .  
+
+or
+
+> git clone git@github.com:perrymarkg/plus65challenge.git .
+
 2. Copy .env.example to .env
 3. Modify the mysql connection variables. In addition you can also modify the ff:
 
