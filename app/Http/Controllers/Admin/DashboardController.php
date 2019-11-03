@@ -35,8 +35,6 @@ class DashboardController extends Controller
         $prizes_options = $this->prize_collection_parser->toSelectOpts($prizes);
         $prizes_grouped = $this->prize_collection_parser->groupPrizes($prizes);
         
-        //$this->prize_collection_parser->padPrizes($prizes_grouped);
-        
         $winning_number = $request->session()->get('winning_number');
         
         $prize_id = old('prize_id') ?

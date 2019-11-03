@@ -26,15 +26,6 @@ class CollectionParser {
         }, []);
     }
 
-    public function padPrizes($collection)
-    {
-        # code...
-        dd($collection);
-        foreach($collection as $col) {
-            
-        }
-    }
-
     public function getPosition($string)
     {
         # code...
