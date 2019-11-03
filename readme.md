@@ -6,6 +6,13 @@ This is a developer challenge from Plus65 for the Backend developer position.
 ## INSTRUCTIONS
 
 1. Clone this repository
+
+> git clone https://github.com/perrymarkg/plus65challenge.git .  
+
+or
+
+> 
+
 2. Copy .env.example to .env
 3. Modify the mysql connection variables. In addition you can also modify the ff:
 
