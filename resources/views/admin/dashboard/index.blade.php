@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-   
+
     @include('admin.dashboard.components.notices')
 
     @include('admin.dashboard.components.clear-btn')

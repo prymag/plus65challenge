@@ -21,6 +21,15 @@
                         ) }}
                             <button class="btn btn-primary"> {{ __('Re-Seed') }}</button>
                         {{ Form::close() }}
+                        <span class="mx-5">|</span>
+                        {{ Form::open(
+                            [
+                                'url' => route('admin.logout'), 
+                                'method' => 'post'
+                            ]
+                        ) }}
+                            <button class="btn btn-primary"> {{ __('Logout') }}</button>
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>

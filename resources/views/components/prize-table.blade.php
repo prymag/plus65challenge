@@ -1,32 +1,17 @@
-<div class="table-wrapper">
-    <table class="table table-striped table-dark text-center mb-0">
-        <thead>
-            <tr>
-                <th colspan="100" class="text-center">
-                    <h3 class="m-0">{{ __( "table-titles.{$key}" ) }}</h3>
-                </th>
-            </tr>
-            <tr>
-                <th class="text-center">{{__('Member Name')}}</th>
-                <th class="text-center">{{__("Winning Number")}}</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="card text-white bg-dark">
+    <div class="card-header text-center">
+        <h4 class="m-0">{{__("table-titles.{$key}")}}</h4>
+    </div>
+    <div class="card-body">
             @foreach($prizes as $key => $prize)
-    
                 @if (!$prize->winner)
                     @continue
                 @endif
-    
-                <tr>
-                    <td class="text-center">
-                        {{ $prize->winner->member->name }}
-                    </td>
-                    <td class="text-center">
-                        {{ $prize->winner->winning_number->number }}
-                    </td>    
-                </tr>
+                <div class="winners text-center mb-3">
+                    {{$prize->position}}
+                    <h5 class="m-0">{{ $prize->winner->winning_number->number }}</h5>
+                    <h6 class="m-0">{{ $prize->winner->member->name }}</h6>
+                </div>
             @endforeach
-        </tbody>
-    </table>
+    </div>
 </div>
