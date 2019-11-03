@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6 text-center">
-            <div class="d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center text-white">
                 {{ Form::open(['url' => route('admin.generate-prizes'), 'method' => 'post']) }}
                     <button class="btn btn-primary"> {{ __('Lucky Draw') }}</button>
                 {{ Form::close() }}

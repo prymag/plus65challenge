@@ -1,0 +1,24 @@
+@media screen and (max-width: 1024px) {
+    .admin-btns {
+        -webkit-box-pack: center !important;
+        justify-content: center !important;
+
+        .splitter {
+            display:none !important;
+        }
+
+        > * {
+            margin-left:0.5rem;
+            margin-right:0.5rem;
+        }
+    }
+    .page-btns {
+        text-align: center;
+        margin-bottom:5px;
+
+        > a {
+            margin-left:0.5rem;
+            margin-right:0.5rem;
+        }
+    }
+}

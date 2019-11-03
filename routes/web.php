@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
 
 Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login.form');
 Route::post('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
@@ -34,8 +30,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function() {
 
 Route::group(['prefix' => 'member'], function() {
     Route::get('/', 'Member\MemberController@index')->name('member.index');
-});
-
-Route::group(['prefix' => 'ajax'], function() {
-    Route::resource('/', 'Ajax\LuckyDraw');
 });

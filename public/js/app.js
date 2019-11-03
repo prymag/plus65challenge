@@ -61624,7 +61624,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 module.exports = function () {
-  var $form_toggle, $form_container, $rand_toggle, $winning_no;
+  var $formToggle, $formContainer, $randToggle, $winningNo;
 
   function init() {
     setVars();
@@ -61633,33 +61633,33 @@ module.exports = function () {
   }
 
   function setVars() {
-    $form_toggle = $('#draw_toggle');
-    $form_container = $('#draw_form_container');
-    $rand_toggle = $('#rand_toggle');
-    $winning_no = $('#winning_number');
+    $formToggle = $('#draw_toggle');
+    $formContainer = $('#draw_form_container');
+    $randToggle = $('#rand_toggle');
+    $winningNo = $('#winning_number');
   }
 
   function onToggleClicked() {
-    $form_toggle.on('click', function (e) {
+    $formToggle.on('click', function (e) {
       e.preventDefault();
-      $form_container.slideToggle();
+      $formContainer.slideToggle();
     });
   }
 
   function onRandToggle() {
-    var checked = $rand_toggle.prop('checked');
+    var checked = $randToggle.prop('checked');
 
     if (checked) {
-      $winning_no.attr('disabled', true);
+      $winningNo.attr('disabled', true);
     }
 
-    $rand_toggle.on('change', function (e) {
+    $randToggle.on('change', function (e) {
       var checked = $(this).prop('checked');
 
       if (checked) {
-        $winning_no.val('').attr('disabled', true);
+        $winningNo.val('').attr('disabled', true);
       } else {
-        $winning_no.val('').attr('disabled', false);
+        $winningNo.val('').attr('disabled', false);
       }
     });
   }
@@ -61680,12 +61680,66 @@ module.exports = function () {
 
 var drawForm = __webpack_require__(/*! ./draw-form */ "./resources/js/draw-form.js");
 
+var winnersCard = __webpack_require__(/*! ./winners-card */ "./resources/js/winners-card.js");
+
 (function ($) {
   $(document).ready(function () {
     $('select').formSelect();
     drawForm.init();
+    winnersCard.init();
   });
 })(jQuery);
+
+/***/ }),
+
+/***/ "./resources/js/winners-card.js":
+/*!**************************************!*\
+  !*** ./resources/js/winners-card.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function () {
+  var $cardWrapper;
+
+  function init() {
+    setVars();
+    setCardHeight();
+    onresize();
+  }
+
+  function setVars() {
+    $cardWrapper = $('.table-prize-row');
+  }
+
+  function onresize() {
+    $(window).resize(function () {
+      if ($(window).width() < 768) {
+        $('.table-prize-row .card').removeAttr('style');
+      } else {
+        setCardHeight();
+      }
+    });
+  }
+
+  function setCardHeight() {
+    var max = 0;
+    $cardWrapper.find('.card').each(function (index, el) {
+      $(el).removeAttr('style');
+      var h = Math.ceil($(el).height());
+      max = h > max ? h : max;
+    });
+    $cardWrapper.find('.card').each(function (index, el) {
+      $(el).css({
+        height: max + 'px'
+      });
+    });
+  }
+
+  return {
+    init: init
+  };
+}();
 
 /***/ }),
 

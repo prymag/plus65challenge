@@ -4,7 +4,7 @@
 
     @include('admin.dashboard.components.notices')
 
-    @include('admin.dashboard.components.clear-btn')
+    @include('admin.dashboard.components.btns')
 
     @include('components.prize-board')
 

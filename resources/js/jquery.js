@@ -1,4 +1,5 @@
 const drawForm = require('./draw-form');
+const winnersCard = require('./winners-card');
 
 (function($) {
 
@@ -6,6 +7,7 @@ const drawForm = require('./draw-form');
         $('select').formSelect();
 
         drawForm.init();
+        winnersCard.init();
     });
 
 })(jQuery);

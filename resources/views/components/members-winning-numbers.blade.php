@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-dark table-bordered text-white table-striped">
                     <thead>
                         <tr>
                             <th colspan="100" class="text-center">{{ 'Members Winning Numbers'}}</th>
