@@ -37,6 +37,11 @@ class WinningNumberService {
         $collection->each(function($member) {
             $min = (int) env('MIN_WINNING_NO', 5);
             $max = (int) env('MAX_WINNING_N0', 10);
+
+            if ($max > 10 || $min <= 1) {
+                dd('Out of bounds');
+            }
+
             factory(WinningNumber::class, rand($min, $max))->create([
                 'member_id' => $member->id
             ]);
