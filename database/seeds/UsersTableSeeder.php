@@ -13,6 +13,6 @@ class UsersTableSeeder extends Seeder
     {
         //
         factory(App\Modules\Users\Admin\Admin::class, 1)->create();
-        factory(App\Modules\Users\Member\Member::class, 3)->create();
+        factory(App\Modules\Users\Member\Member::class, 6)->create();
     }
 }

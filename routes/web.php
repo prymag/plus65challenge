@@ -24,7 +24,10 @@ Route::post('/admin/login', 'Admin\LoginController@login')->name('admin.do.login
 
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::resource('/', 'Admin\DashboardController');
+    Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
+    Route::post('/generate-prizes', 'Admin\DrawGeneratorController@generatePrizes')->name('admin.generate-prizes');
+    Route::post('/generate-prize', 'Admin\DrawGeneratorController@generatePrize')->name('admin.generate-prize');
+    Route::post('/clear-winners', 'Admin\WinnersController@clearWinners')->name('admin.clear-winners');
 });
 
 Route::group(['prefix' => 'ajax'], function() {

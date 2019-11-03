@@ -3,8 +3,10 @@
 namespace App\Modules\Prize;
 
 use App\Modules\Base\LogService;
+use App\Modules\Prize\Exceptions\NoAvailablePrizesException;
 use App\Modules\Prize\Prize;
 use App\Modules\Prize\PrizeSeed;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PrizeService {
 
@@ -14,14 +16,18 @@ class PrizeService {
 
     protected $log_service;
 
+    protected $queries;
+
     public function __construct(
         Prize $prize,
         PrizeSeed $prize_seed,
+        Queries $queries,
         LogService $log_service
     ) {
         # code...
         $this->prize_seed = $prize_seed;
         $this->prize = $prize;
+        $this->queries = $queries;
         $this->log_service = $log_service;
     }
 
@@ -62,17 +68,27 @@ class PrizeService {
     public function getActivePrizes()
     {
         # code...
-        $fields = [
-            'prizes.id as id',
-            'key',
-            'sort_order',
-            'title'
-        ];
-        return $this->prize
-            ->select($fields)
-            ->leftJoin('draw_winners', 'draw_winners.prize_id', '=', 'prizes.id')
-            ->whereNull('draw_winners.prize_id')
-            ->get();
+        $query = $this->queries->activePrizes();
+        $prizes = $query->get();
+
+        if (!$prizes->count()) {
+            throw new NoAvailablePrizesException(__('No Available Prizes'));
+        }
+
+        return $prizes;
+    }
+
+    public function getActivePrize($prize_id)
+    {
+        # code...
+        $query = $this->queries->activePrizes();
+        $prize = $query->where('prizes.id', $prize_id)->first();
+
+        if (!$prize) {
+            throw new ModelNotFoundException("Not Found");
+        }
+
+        return $prize;
     }
 
 }

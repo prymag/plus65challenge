@@ -61616,16 +61616,73 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/draw-form.js":
+/*!***********************************!*\
+  !*** ./resources/js/draw-form.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function () {
+  var $form_toggle, $form_container, $rand_toggle, $winning_no;
+
+  function init() {
+    setVars();
+    onToggleClicked();
+    onRandToggle();
+  }
+
+  function setVars() {
+    $form_toggle = $('#draw_toggle');
+    $form_container = $('#draw_form_container');
+    $rand_toggle = $('#rand_toggle');
+    $winning_no = $('#winning_number');
+  }
+
+  function onToggleClicked() {
+    $form_toggle.on('click', function (e) {
+      e.preventDefault();
+      $form_container.slideToggle();
+    });
+  }
+
+  function onRandToggle() {
+    var checked = $rand_toggle.prop('checked');
+    console.log(checked);
+
+    if (checked) {
+      $winning_no.attr('disabled', true);
+    }
+
+    $rand_toggle.on('change', function (e) {
+      var checked = $(this).prop('checked');
+
+      if (checked) {
+        $winning_no.val('').attr('disabled', true);
+      }
+    });
+  }
+
+  return {
+    init: init
+  };
+}();
+
+/***/ }),
+
 /***/ "./resources/js/jquery.js":
 /*!********************************!*\
   !*** ./resources/js/jquery.js ***!
   \********************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+var drawForm = __webpack_require__(/*! ./draw-form */ "./resources/js/draw-form.js");
 
 (function ($) {
   $(document).ready(function () {
     $('select').formSelect();
+    drawForm.init();
   });
 })(jQuery);
 

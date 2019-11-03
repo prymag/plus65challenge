@@ -20552,3 +20552,7 @@ input[type=range]::-ms-thumb {
   height: 100%;
 }
 
+#draw_form_container {
+  display: none;
+}
+

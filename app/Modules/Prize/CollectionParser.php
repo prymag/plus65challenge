@@ -22,8 +22,16 @@ class CollectionParser {
 
             $arr[$key][] = $item;
             return $arr;
-            //return $carry + $item;
         }, []);
+    }
+
+    public function toSelectOpts(Collection $collection)
+    {
+        # code...
+        return $collection->reduce(function($arr, $item) {
+            $arr[$item->id] = $item->title;
+            return $arr;
+        }, ['' => __('Please Select')]);
     }
 
 }

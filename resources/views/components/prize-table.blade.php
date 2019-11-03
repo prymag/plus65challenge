@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th colspan="100" class="text-center">
-                    <h3 class="m-0">{{ __($key) }}</h3>
+                    <h3 class="m-0">{{ __( "table-titles.{$key}" ) }}</h3>
                 </th>
             </tr>
             <tr>

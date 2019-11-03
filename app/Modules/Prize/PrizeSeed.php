@@ -31,6 +31,11 @@ class PrizeSeed extends Seed  {
             'title' => 'Third Prize - 2nd Winner',
             'key' => 'third_prize_2',
             'sort_order' => 5
+        ],
+        [
+            'title' => 'Third Prize - 3rd Winner',
+            'key' => 'third_prize_3',
+            'sort_order' => 5
         ]
     ];
 
