@@ -22,9 +22,9 @@ $factory->define(Admin::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'username' => 'appadmn',
+        'username' => env('ADMIN_USER', 'appadmn'),
         'email_verified_at' => now(),
-        'password' => App::make('hash')->make('password'), // password
+        'password' => App::make('hash')->make(env('ADMIN_PASSWORD', 'password')), // password
         'remember_token' => Str::random(10),
     ];
 });
