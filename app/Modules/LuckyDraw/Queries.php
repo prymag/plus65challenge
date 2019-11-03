@@ -45,12 +45,17 @@ class Queries {
      * @param Array[int] $member_ids
      * @return Builder
      */
-    public function winningNumber($member_ids)
+    public function winningNumber($member_ids, $search = false)
     {
         # code...
-        return $this->winning_number
-            ->whereIn('winning_numbers.member_id', $member_ids)
-            ->inRandomOrder();
+        $query = $this->winning_number
+            ->whereIn('winning_numbers.member_id', $member_ids);
+
+        if (is_array($search)) {
+            return $query->where($search['field'], $search['value']);
+        }
+
+        return $query->inRandomOrder();;
     }
 
 }

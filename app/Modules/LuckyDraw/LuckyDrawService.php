@@ -2,7 +2,6 @@
 
 namespace App\Modules\LuckyDraw;
 
-use App\Modules\Base\CollectionParser;
 use App\Modules\LuckyDraw\DrawGenerators\AbstractDrawGenerator;
 use App\Modules\LuckyDraw\DrawGenerators\GrandPrize;
 use App\Modules\LuckyDraw\DrawGenerators\RandomPrize;
@@ -38,14 +37,16 @@ class LuckyDrawService {
         }
     }
 
-    public function generatePrize(Prize $prize)
+    public function generatePrize(Prize $prize, $winning_number = false)
     {
         # code...
         $generator = $this->getGenerator($prize);
 
         if ($generator) {
-            $generator->generate($prize);
+            return $generator->generate($prize, $winning_number);
         }
+
+        return;
     }
 
     /**
