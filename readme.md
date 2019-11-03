@@ -21,3 +21,11 @@ This is a developer challenge from Plus65 for the PHP developer position.
 5. Run `composer install`
 6. Run `php artisan key:generate`
 5. Run `php artisan migrate --seed`
+
+### Sample
+
+Admin  
+![Admin](screens/admin.png)  
+
+Member  
+![Member](screens/member.png)  

@@ -61685,8 +61685,7 @@ var winnersCard = __webpack_require__(/*! ./winners-card */ "./resources/js/winn
 (function ($) {
   $(document).ready(function () {
     $('select').formSelect();
-    drawForm.init();
-    winnersCard.init();
+    drawForm.init(); //winnersCard.init();
   });
 })(jQuery);
 

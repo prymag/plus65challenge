@@ -7,7 +7,7 @@ const winnersCard = require('./winners-card');
         $('select').formSelect();
 
         drawForm.init();
-        winnersCard.init();
+        //winnersCard.init();
     });
 
 })(jQuery);
