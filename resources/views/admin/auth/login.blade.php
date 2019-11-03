@@ -1,13 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-3 col-sm-12">
             
+            @if(Session::get('errors')||count( $errors ) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                      <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+            
             <div class="card">
                 <div class="card-header">
-                    <h1 class="mb-0 text-center">{{ __('Hello') }}</h1>
+                    <h3 class="m-0 text-center">{{ __('Admin Login') }}</h3>
                 </div>
                 {{ Form::open(['url' => route('admin.do.login'), 'method' => 'post']) }}
                 <div class="card-body">
