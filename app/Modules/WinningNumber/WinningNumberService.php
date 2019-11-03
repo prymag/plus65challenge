@@ -35,7 +35,9 @@ class WinningNumberService {
     {
         # code...
         $collection->each(function($member) {
-            factory(WinningNumber::class, rand(5,10))->create([
+            $min = (int) env('MIN_WINNING_NO', 5);
+            $max = (int) env('MAX_WINNING_N0', 10);
+            factory(WinningNumber::class, rand($min, $max))->create([
                 'member_id' => $member->id
             ]);
         });

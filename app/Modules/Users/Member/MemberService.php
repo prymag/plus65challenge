@@ -72,7 +72,13 @@ class MemberService {
     public function seed()
     {
         # code...
-        factory(Member::class, 6)->create();        
+        $count = env('MEMBER_COUNT', 6);
+        
+        if ($count > 10) {
+            dd(__('Ooops! not part of the scope :D '));
+        }
+
+        factory(Member::class, (int) $count)->create();        
     }
 
     
