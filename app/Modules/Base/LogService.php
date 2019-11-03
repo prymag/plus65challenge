@@ -26,6 +26,8 @@ class LogService {
                 $this->info($e, $time);
                 break;
         }
+
+        return $time;
     }
 
     public function error(\Exception $e, $time)
